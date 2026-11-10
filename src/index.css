@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-navy: #102C3A;
+    --color-aqua: #00A6B2;
+    --color-vibrant-aqua: #12C7C5;
+    --color-ice: #DDF3F3;
+    --color-mist: #EDF5F5;
+    --color-warm-white: #F8F9F6;
+    --color-charcoal: #202B32;
+    --color-slate-muted: #647681;
+    --color-copper: #E99A55;
+  }
+
+  html {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    scroll-behavior: smooth;
+    color: #202B32;
+    background-color: #F8F9F6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+}
+
+/* Luxury Typography Classes */
+.font-display {
+  font-family: 'Sora', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-heading {
+  font-family: 'Archivo', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-body {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Zero-box editorial underline form inputs */
+.editorial-input {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  border-width: 0 0 1px 0 !important;
+  border-color: rgba(32, 43, 50, 0.25) !important;
+  padding: 0.85rem 0 !important;
+  font-size: 1rem !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: border-color 0.25s ease, padding 0.25s ease;
+}
+
+.editorial-input:focus {
+  border-color: #00A6B2 !important;
+  border-bottom-width: 2px !important;
+  box-shadow: none !important;
+}
+
+.editorial-input-dark {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  border-width: 0 0 1px 0 !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #FFFFFF !important;
+  padding: 0.85rem 0 !important;
+  font-size: 1rem !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: border-color 0.25s ease;
+}
+
+.editorial-input-dark:focus {
+  border-color: #12C7C5 !important;
+  border-bottom-width: 2px !important;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #102C3A;
+}
+::-webkit-scrollbar-thumb {
+  background: #00A6B2;
+}
+
+/* Smooth reveal utility */
+.gsap-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}

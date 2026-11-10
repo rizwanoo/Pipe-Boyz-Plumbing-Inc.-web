@@ -1,0 +1,6 @@
+{
+  "name": "Pipe Boyz Plumbing Inc.",
+  "description": "Licensed California C-36 plumbing contractor (#1112334) providing residential and commercial plumbing across North Hollywood, San Fernando Valley, and Greater Los Angeles.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "fileName": "pipeboyz-logo.png",
+    "path": "/assets/pipeboyz-logo.png",
+    "alt": "Pipe Boyz Plumbing Inc. logo, two smiling plumbers giving thumbs up, Lic.# 1112334"
+  },
+  {
+    "id": 1,
+    "fileName": "water-heater-replacement.jpg",
+    "path": "/assets/projects/water-heater-replacement.jpg",
+    "alt": "Water heater replacement in a closet, with new copper, expansion tank and venting"
+  },
+  {
+    "id": 2,
+    "fileName": "moen-smart-shutoff-valve.jpg",
+    "path": "/assets/projects/moen-smart-shutoff-valve.jpg",
+    "alt": "Moen automatic water shutoff valve installed on new copper line"
+  },
+  {
+    "id": 3,
+    "fileName": "pressure-regulating-valve-1inch.jpg",
+    "path": "/assets/projects/pressure-regulating-valve-1inch.jpg",
+    "alt": "New 1 inch pressure regulating valve, shutoffs and gauge on a new copper water line"
+  },
+  {
+    "id": 4,
+    "fileName": "shower-valve-rough-in.jpg",
+    "path": "/assets/projects/shower-valve-rough-in.jpg",
+    "alt": "Copper rough plumbing for a shower valve inside an open wall"
+  },
+  {
+    "id": 5,
+    "fileName": "garbage-disposal-installation.jpg",
+    "path": "/assets/projects/garbage-disposal-installation.jpg",
+    "alt": "Garbage disposal installed under a kitchen sink with new drain"
+  },
+  {
+    "id": 6,
+    "fileName": "pressure-regulator-hose-bib.jpg",
+    "path": "/assets/projects/pressure-regulator-hose-bib.jpg",
+    "alt": "New pressure regulating valve with copper line and hose bib"
+  },
+  {
+    "id": 7,
+    "fileName": "moen-shutoff-copper-tie-in.jpg",
+    "path": "/assets/projects/moen-shutoff-copper-tie-in.jpg",
+    "alt": "Moen shutoff valve with new copper piping tied into an existing line"
+  },
+  {
+    "id": 8,
+    "fileName": "commercial-gas-water-heater.jpg",
+    "path": "/assets/projects/commercial-gas-water-heater.jpg",
+    "alt": "Large gas water heater installed with new copper piping and insulation"
+  },
+  {
+    "id": 9,
+    "fileName": "bathroom-rough-plumbing.jpg",
+    "path": "/assets/projects/bathroom-rough-plumbing.jpg",
+    "alt": "Copper supply lines and ABS drain rough-in during a bathroom remodel"
+  }
+]
