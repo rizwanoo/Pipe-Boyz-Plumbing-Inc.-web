@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
-import { ArrowUpRight, Phone, ShieldCheck, Check, Wrench, Droplets, Flame, Building2 } from 'lucide-react';
+import { ArrowUpRight, Phone, ShieldCheck, Check } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PageTab } from '../types';
 import { COMPANY, SERVICES_DATA, PROJECTS_DATA } from '../data/companyData';
 import { QuoteForm } from '../components/QuoteForm';
 import { ServiceAreaChecker } from '../components/ServiceAreaChecker';
+import { ServiceIcon } from '../components/ServiceIcons';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -221,10 +222,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onRequestQuote }
             ref={heroImageRef}
             src="/assets/hero-cinematic-construction.png"
             alt="Pipe Boyz Plumbing Inc. Cinematic Construction Facility with 3D Brand Sign"
+            loading="eager"
+            decoding="async"
             className="w-full h-full object-cover object-center will-change-transform"
           />
-          {/* High-contrast dark foundation overlay for 100% pop-out text readability */}
-          <div className="absolute inset-x-0 bottom-0 h-[68%] sm:h-[62%] bg-gradient-to-t from-[#0A1A24] via-[#0A1A24]/85 to-transparent pointer-events-none" />
+          {/* High-contrast gradient at very bottom ONLY so text is legible while header & image are 100% untinted */}
+          <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-[#0A1A24] via-[#0A1A24]/80 to-transparent pointer-events-none" />
         </div>
 
         {/* Content Container (High-Contrast Bold Yellow, Cyan & White Typography) */}
@@ -412,6 +415,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onRequestQuote }
                 <img
                   src="/assets/images/services_water_heater_tankless_1794310653410.jpg"
                   alt="High efficiency tankless water heater installation"
+                  loading="lazy"
+                  decoding="async"
                   className="gsap-parallax-img w-full h-[400px] sm:h-[480px] object-cover object-center filter grayscale-[8%] hover:grayscale-0 transition-all duration-700"
                 />
               </div>
@@ -425,6 +430,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onRequestQuote }
                 <img
                   src="/assets/images/commercial_plumbing_system_1794310653934.jpg"
                   alt="Commercial plumbing mechanical room with large-diameter distribution"
+                  loading="lazy"
+                  decoding="async"
                   className="gsap-parallax-img w-full h-[400px] sm:h-[480px] object-cover object-center filter grayscale-[8%] hover:grayscale-0 transition-all duration-700"
                 />
               </div>
@@ -472,7 +479,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onRequestQuote }
         </div>
       </section>
 
-      {/* SECTION 4: FEATURED PLUMBING SERVICES (Numbered Editorial Rows with GSAP Reveals, NO CARDS) */}
+      {/* SECTION 4: FEATURED PLUMBING SERVICES (Numbered Editorial Rows with Line-Art SVG Icons) */}
       <section className="py-24 sm:py-32 bg-[#102C3A] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
@@ -493,26 +500,34 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onRequestQuote }
             </button>
           </div>
 
-          {/* Numbered Service List with Dividers */}
+          {/* Service Rows with Minimal Line-Art SVG Icons */}
           <div className="divide-y divide-white/10">
             {SERVICES_DATA.map((srv) => (
               <div
                 key={srv.id}
                 className="gsap-service-row py-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start group hover:bg-white/[0.02] transition-colors"
               >
-                <div className="lg:col-span-2 flex items-baseline gap-4">
-                  <span className="text-3xl sm:text-4xl font-extrabold font-display text-[#00A6B2] tracking-tighter">
-                    {srv.number}
-                  </span>
-                  <span className="text-xs uppercase tracking-wider text-white/40 font-mono">
-                    DISCIPLINE
-                  </span>
+                <div className="lg:col-span-3 flex items-center gap-4">
+                  {/* Modern Line-Art SVG Icon Container */}
+                  <div className="p-3 bg-[#12C7C5]/10 border border-[#12C7C5]/30 text-[#12C7C5] group-hover:bg-[#12C7C5] group-hover:text-[#102C3A] transition-all shrink-0">
+                    <ServiceIcon name={srv.icon} className="w-7 h-7 stroke-[1.75]" />
+                  </div>
+                  <div>
+                    <span className="text-2xl sm:text-3xl font-black font-display text-[#00A6B2] tracking-tighter block">
+                      {srv.number}
+                    </span>
+                    <span className="text-[10px] uppercase tracking-wider text-white/50 font-mono block">
+                      DISCIPLINE
+                    </span>
+                  </div>
                 </div>
 
                 <div className="lg:col-span-6 space-y-3">
-                  <h3 className="text-2xl sm:text-3xl font-bold font-display text-white group-hover:text-[#12C7C5] transition-colors">
-                    {srv.title}
-                  </h3>
+                  <div className="flex items-center gap-3">
+                    <h3 className="text-2xl sm:text-3xl font-bold font-display text-white group-hover:text-[#12C7C5] transition-colors">
+                      {srv.title}
+                    </h3>
+                  </div>
                   <p className="text-sm sm:text-base text-white/75 leading-relaxed">
                     {srv.shortDesc}
                   </p>
@@ -525,7 +540,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onRequestQuote }
                   </div>
                 </div>
 
-                <div className="lg:col-span-4 flex flex-col justify-between items-start lg:items-end gap-6 h-full">
+                <div className="lg:col-span-3 flex flex-col justify-between items-start lg:items-end gap-6 h-full">
                   <button
                     onClick={() => onNavigate('services', srv.id)}
                     className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/90 hover:text-[#12C7C5] transition-colors py-2 border-b border-white/20 hover:border-[#12C7C5]"

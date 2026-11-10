@@ -38,39 +38,41 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   };
 
   return (
-    <div className="w-full pt-28 sm:pt-36 bg-[#F8F9F6] text-[#202B32]">
-      {/* Header Banner (Editorial Full-Width, No Box) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 border-b border-[#202B32]/10">
-        <div className="space-y-4 max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-[#00A6B2] font-bold">
-            <span>California C-36 Certified Disciplines</span>
-            <span>·</span>
-            <span>Lic. #1112334</span>
+    <div className="w-full bg-[#F8F9F6] text-[#202B32]">
+      {/* Header Banner (Cinematic Dark Header) */}
+      <section className="bg-[#102C3A] text-white pt-28 sm:pt-36 pb-16 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-4 max-w-3xl">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-[#12C7C5] font-black font-display">
+              <span>California C-36 Certified Disciplines</span>
+              <span>·</span>
+              <span>Lic. #1112334</span>
+            </div>
+            <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight leading-tight text-white">
+              Comprehensive Plumbing Engineering
+            </h1>
+            <p className="text-base sm:text-xl text-white/80 leading-relaxed font-medium">
+              From high-pressure water main diagnostics to precision commercial installations, we execute every project according to California building codes and uncompromising plumbing craftsmanship.
+            </p>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold font-display tracking-tight leading-tight">
-            Comprehensive Plumbing Engineering
-          </h1>
-          <p className="text-base sm:text-xl text-[#647681] leading-relaxed">
-            From high-pressure water main diagnostics to precision commercial installations, we execute every project according to California building codes and uncompromising plumbing craftsmanship.
-          </p>
-        </div>
 
-        {/* Unboxed Sticky / Editorial Anchor Bar */}
-        <div className="mt-12 pt-6 border-t border-[#202B32]/10 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs font-bold uppercase tracking-wider">
-          <span className="text-[#647681]">Jump to Discipline:</span>
-          {SERVICES_DATA.map((srv) => (
-            <button
-              key={srv.id}
-              onClick={() => scrollToService(srv.id)}
-              className={`transition-colors py-1 relative ${
-                activeServiceId === srv.id
-                  ? 'text-[#00A6B2] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#00A6B2]'
-                  : 'text-[#202B32]/70 hover:text-[#00A6B2]'
-              }`}
-            >
-              {srv.number}. {srv.title}
-            </button>
-          ))}
+          {/* Unboxed Editorial Anchor Bar */}
+          <div className="mt-12 pt-6 border-t border-white/15 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs font-black uppercase tracking-wider font-display">
+            <span className="text-white/60">Jump to Discipline:</span>
+            {SERVICES_DATA.map((srv) => (
+              <button
+                key={srv.id}
+                onClick={() => scrollToService(srv.id)}
+                className={`transition-colors py-1 relative ${
+                  activeServiceId === srv.id
+                    ? 'text-[#12C7C5] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#12C7C5]'
+                    : 'text-white/80 hover:text-[#12C7C5]'
+                }`}
+              >
+                {srv.number}. {srv.title}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -33,11 +33,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate, onReques
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const isDarkHeader = isScrolled || currentTab !== 'home';
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled
-        ? 'bg-[#102C3A]/95 backdrop-blur-md border-b border-white/10 shadow-lg'
-        : 'bg-gradient-to-b from-black/80 via-black/35 to-transparent backdrop-blur-[2px] border-b border-white/10'
+      isDarkHeader
+        ? 'bg-[#102C3A] border-b border-white/10 shadow-xl'
+        : 'bg-transparent border-b border-white/10'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between gap-4 lg:gap-8">
         {/* Zone 1: Brand Wordmark & Original Logo (shrink-0 to prevent any collision) */}
@@ -61,14 +63,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate, onReques
           </div>
         </button>
 
-        {/* Zone 2: Navigation Links (Bold, Stylish, High-Contrast Typography, NO PILLS) */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-extrabold tracking-wider shrink-0">
+        {/* Zone 2: Navigation Links (Bold, Ultra-Crisp Display Typography) */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-black tracking-widest font-display shrink-0">
           <button
             onClick={() => handleNavClick('home')}
-            className={`whitespace-nowrap transition-colors relative py-1.5 focus-visible:outline-none uppercase ${
+            className={`whitespace-nowrap transition-all duration-200 relative py-1.5 focus-visible:outline-none uppercase ${
               currentTab === 'home'
-                ? 'text-[#12C7C5] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#12C7C5]'
-                : 'text-white/90 hover:text-[#12C7C5]'
+                ? 'text-[#12C7C5] drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-[#12C7C5]'
+                : 'text-white hover:text-[#12C7C5] drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]'
             }`}
           >
             HOME
@@ -82,16 +84,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate, onReques
           >
             <button
               onClick={() => handleNavClick('services')}
-              className={`flex items-center gap-1.5 whitespace-nowrap transition-colors relative py-1.5 focus-visible:outline-none uppercase ${
+              className={`flex items-center gap-1.5 whitespace-nowrap transition-all duration-200 relative py-1.5 focus-visible:outline-none uppercase ${
                 currentTab === 'services'
-                  ? 'text-[#12C7C5] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#12C7C5]'
-                  : 'text-white/90 hover:text-[#12C7C5]'
+                  ? 'text-[#12C7C5] drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-[#12C7C5]'
+                  : 'text-white hover:text-[#12C7C5] drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]'
               }`}
             >
               <span>SERVICES</span>
               <ChevronDown
                 className={`w-4 h-4 transition-transform duration-200 ${
-                  isServicesDropdownOpen ? 'rotate-180 text-[#12C7C5]' : 'text-white/60'
+                  isServicesDropdownOpen ? 'rotate-180 text-[#12C7C5]' : 'text-white/80'
                 }`}
               />
             </button>
@@ -99,8 +101,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate, onReques
             {/* Editorial Dropdown Menu without boxy cards */}
             {isServicesDropdownOpen && (
               <div className="absolute top-full -left-4 pt-2 w-72 z-50">
-                <div className="bg-[#102C3A] text-white border border-white/15 shadow-2xl p-4 divide-y divide-white/10">
-                  <div className="pb-2 text-[10px] tracking-widest text-[#12C7C5] uppercase font-black">
+                <div className="bg-[#102C3A]/98 backdrop-blur-md text-white border border-white/20 shadow-2xl p-4 divide-y divide-white/10">
+                  <div className="pb-2 text-[10px] tracking-widest text-[#12C7C5] uppercase font-black font-display">
                     Master Plumbing Services
                   </div>
                   <div className="pt-2 flex flex-col gap-1">
@@ -108,10 +110,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate, onReques
                       <button
                         key={srv.id}
                         onClick={() => handleNavClick('services', srv.id)}
-                        className="text-left py-2 px-2 text-xs font-bold text-white/90 hover:text-[#12C7C5] hover:translate-x-1 transition-all flex items-center justify-between group"
+                        className="text-left py-2 px-2 text-xs font-black text-white hover:text-[#12C7C5] hover:translate-x-1 transition-all flex items-center justify-between group font-display"
                       >
                         <span>{srv.title}</span>
-                        <span className="text-[10px] text-white/40 group-hover:text-[#12C7C5]">
+                        <span className="text-[10px] text-white/50 group-hover:text-[#12C7C5]">
                           {srv.number}
                         </span>
                       </button>
@@ -124,10 +126,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate, onReques
 
           <button
             onClick={() => handleNavClick('work')}
-            className={`whitespace-nowrap transition-colors relative py-1.5 focus-visible:outline-none uppercase ${
+            className={`whitespace-nowrap transition-all duration-200 relative py-1.5 focus-visible:outline-none uppercase ${
               currentTab === 'work'
-                ? 'text-[#12C7C5] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#12C7C5]'
-                : 'text-white/90 hover:text-[#12C7C5]'
+                ? 'text-[#12C7C5] drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-[#12C7C5]'
+                : 'text-white hover:text-[#12C7C5] drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]'
             }`}
           >
             OUR WORK
@@ -135,10 +137,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate, onReques
 
           <button
             onClick={() => handleNavClick('about-contact')}
-            className={`whitespace-nowrap transition-colors relative py-1.5 focus-visible:outline-none uppercase ${
+            className={`whitespace-nowrap transition-all duration-200 relative py-1.5 focus-visible:outline-none uppercase ${
               currentTab === 'about-contact'
-                ? 'text-[#12C7C5] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#12C7C5]'
-                : 'text-white/90 hover:text-[#12C7C5]'
+                ? 'text-[#12C7C5] drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-[#12C7C5]'
+                : 'text-white hover:text-[#12C7C5] drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]'
             }`}
           >
             ABOUT & CONTACT
@@ -146,10 +148,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate, onReques
         </nav>
 
         {/* Zone 3: Primary Actions (Click-to-call + Bold Unboxed CTA, shrink-0) */}
-        <div className="flex items-center gap-4 xl:gap-6 shrink-0">
+        <div className="flex items-center gap-4 xl:gap-6 shrink-0 font-display">
           <a
             href={`tel:${COMPANY.contact.phone}`}
-            className="hidden sm:flex items-center gap-2 text-[#12C7C5] hover:text-white transition-colors text-sm font-black tracking-wide whitespace-nowrap"
+            className="hidden sm:flex items-center gap-2 text-[#12C7C5] hover:text-white transition-colors text-sm font-black tracking-wide whitespace-nowrap drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]"
             aria-label={`Call Pipe Boyz Plumbing at ${COMPANY.contact.phoneFormatted}`}
           >
             <Phone className="w-4 h-4 text-[#12C7C5]" />
@@ -158,7 +160,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate, onReques
 
           <button
             onClick={onRequestQuote}
-            className="group flex items-center gap-2 text-xs sm:text-sm font-black tracking-wider uppercase text-white hover:text-[#12C7C5] transition-colors py-2 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#12C7C5] hover:after:bg-white after:transition-all whitespace-nowrap shrink-0"
+            className="group flex items-center gap-2 text-xs sm:text-sm font-black tracking-widest uppercase text-white hover:text-[#12C7C5] transition-colors py-2 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#12C7C5] hover:after:bg-white after:transition-all whitespace-nowrap shrink-0 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]"
           >
             <span>REQUEST FREE QUOTE</span>
             <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#12C7C5]" />

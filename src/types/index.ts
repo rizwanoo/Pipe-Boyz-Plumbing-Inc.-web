@@ -11,6 +11,7 @@ export interface ServiceItem {
   keySpecs: { label: string; value: string }[];
   image: string;
   imageAlt: string;
+  icon: 'flame' | 'sewer' | 'adu' | 'fixtures' | 'valves' | 'commercial';
 }
 
 export interface ProjectItem {

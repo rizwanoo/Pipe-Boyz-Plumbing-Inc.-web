@@ -63,6 +63,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     image: '/assets/images/services_water_heater_tankless_1794310653410.jpg',
     imageAlt: 'High efficiency tankless water heater installation with copper manifold by Pipe Boyz Plumbing',
+    icon: 'flame',
   },
   {
     id: 'sewer-lines',
@@ -88,6 +89,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     image: '/assets/images/services_sewer_camera_inspection_1794310654357.jpg',
     imageAlt: 'Professional high-definition sewer camera diagnostic inspection equipment by Pipe Boyz Plumbing',
+    icon: 'sewer',
   },
   {
     id: 'adu-construction',
@@ -113,6 +115,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     image: '/assets/images/adu_new_construction_roughin_1794310654865.jpg',
     imageAlt: 'Precision residential ADU rough plumbing framing with copper lines and ABS drainage',
+    icon: 'adu',
   },
   {
     id: 'fixtures-toilets',
@@ -138,6 +141,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     image: '/assets/projects/shower-valve-rough-in.jpg',
     imageAlt: 'Authentic copper rough plumbing for shower valve installed inside open wall by Pipe Boyz Plumbing',
+    icon: 'fixtures',
   },
   {
     id: 'water-lines-valves',
@@ -163,6 +167,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     image: '/assets/projects/moen-smart-shutoff-valve.jpg',
     imageAlt: 'Authentic Moen automatic water shutoff valve installed on new copper line by Pipe Boyz Plumbing',
+    icon: 'valves',
   },
   {
     id: 'commercial-plumbing',
@@ -188,6 +193,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     image: '/assets/images/commercial_plumbing_system_1794310653934.jpg',
     imageAlt: 'Industrial commercial plumbing mechanical room with large-diameter distribution lines and backflow preventers',
+    icon: 'commercial',
   },
 ];
 

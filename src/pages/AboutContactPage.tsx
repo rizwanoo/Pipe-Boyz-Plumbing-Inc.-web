@@ -14,21 +14,23 @@ export const AboutContactPage: React.FC<AboutContactPageProps> = ({ onNavigate, 
   const [activeMapLayer, setActiveMapLayer] = useState<'headquarters' | 'valley-radius'>('headquarters');
 
   return (
-    <div className="w-full pt-28 sm:pt-36 bg-[#F8F9F6] text-[#202B32]">
-      {/* Header Banner (Editorial Full-Width, No Box) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 border-b border-[#202B32]/10">
-        <div className="space-y-4 max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-[#00A6B2] font-bold">
-            <span>Company Headquarters & Dispatch</span>
-            <span>·</span>
-            <span>North Hollywood, California</span>
+    <div className="w-full bg-[#F8F9F6] text-[#202B32]">
+      {/* Header Banner (Cinematic Dark Header) */}
+      <section className="bg-[#102C3A] text-white pt-28 sm:pt-36 pb-16 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-4 max-w-3xl">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-[#12C7C5] font-black font-display">
+              <span>Company Headquarters & Dispatch</span>
+              <span>·</span>
+              <span>North Hollywood, California</span>
+            </div>
+            <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight leading-tight text-white">
+              About & Contact
+            </h1>
+            <p className="text-base sm:text-xl text-white/80 leading-relaxed font-medium">
+              Pipe Boyz Plumbing Inc. is a licensed California C-36 plumbing contractor (#1112334) providing residential and commercial plumbing services across the San Fernando Valley and Greater Los Angeles.
+            </p>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold font-display tracking-tight leading-tight">
-            About & Contact
-          </h1>
-          <p className="text-base sm:text-xl text-[#647681] leading-relaxed">
-            Pipe Boyz Plumbing Inc. is a licensed California C-36 plumbing contractor (#1112334) providing residential and commercial plumbing services across the San Fernando Valley and Greater Los Angeles.
-          </p>
         </div>
       </section>
 

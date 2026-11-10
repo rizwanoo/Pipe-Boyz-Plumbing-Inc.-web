@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PageTab } from './types';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { HomePage } from './pages/HomePage';
 import { ServicesPage } from './pages/ServicesPage';
 import { WorkPage } from './pages/WorkPage';
@@ -68,7 +69,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8F9F6] text-[#202B32] selection:bg-[#00A6B2] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#F8F9F6] text-[#202B32] selection:bg-[#00A6B2] selection:text-white relative">
       {/* Cinematic Top Navigation Header */}
       <Navbar
         currentTab={currentTab}
@@ -104,6 +105,9 @@ export default function App() {
           />
         )}
       </main>
+
+      {/* Floating WhatsApp / Contact Us Quick Action Button */}
+      <FloatingWhatsApp onScrollToContact={handleRequestQuote} />
 
       {/* Cinematic Editorial Footer */}
       <Footer
